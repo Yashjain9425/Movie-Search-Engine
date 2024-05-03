@@ -33,7 +33,7 @@ window.onresize = function () {
 };
 
 function initialMovieList() {
-    getMovies("Lovely")
+    getMovies("All")
         .then(({movies = [], totalResult = 0}) => {
             movies.map(generateMovieItem)
         });
@@ -55,7 +55,7 @@ function searchInMovies(e) {
     SEARCH_DEBOUNCE_FLAG = setTimeout(() => {
 
         let trend = e.target.value;
-        if (!trend) trend = "Lovely";
+        if (!trend) trend = "All";
 
         // search with a trend less than 3 chars cause an error on omdbapi
         if (trend.length < 3)
@@ -74,7 +74,7 @@ function searchInMovies(e) {
 function nextBtnClickHandler() {
 
     let trend = searchInput.value;
-    if (!trend) trend = "Lovely";
+    if (!trend) trend = "All";
 
     // search with a trend less than 3 chars cause an error on omdbapi
     if (trend.length < 3)
